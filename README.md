@@ -44,23 +44,105 @@ The current baseline was validated on a physical camera with the M2A, M2B, and M
 
 ## Hardware Basis
 
-Prudynt-SE is based on the current supported hardware list published by Thingino:
+Prudynt-SE is intended as a drop-in replacement for the same concrete camera models and board targets currently listed on the Thingino supported hardware page:
 
 [Thingino supported hardware list](https://thingino.com/)
 
-That means this repo is intended for the same general camera and board families that Thingino targets today, including:
+Important compatibility rule:
 
-- Indoor cameras
-- Outdoor cameras
-- Doorbells
-- Floodlights
-- Body cameras
-- Webcams
-- Modules and development boards
+- the exact SoC, image sensor, Wi-Fi module, Ethernet presence, and flash size must match the Thingino-supported hardware entry for your device
+- the same retail model name can ship with different internals, so model name alone is not enough
 
-Examples shown on the current Thingino list include camera families from Wyze, Xiaomi, Eufy, Wansview, Teckin, Sonoff, Aqara, Gwell, and OpenIPC-related boards/modules, alongside Ingenic development platforms such as T20, T21, T23, T30, T31, T40, and T41 based boards.
+### Supported camera and board targets
 
-Support still depends on the exact SoC, sensor, flash layout, Wi-Fi chipset, and Thingino target profile matching a supported device on the Thingino side. If a camera is not represented by the current Thingino hardware list, treat Prudynt-SE support as experimental until verified.
+Indoor IP cameras:
+
+- 360 AP1PA3
+- AJCloud T-CP2011-W32A
+- AJCloud T-CP8010TF-W3M
+- Aobocam A12
+- ATOM Cam 1
+- ATOM Cam 2
+- Cinnado D1
+- Edison WK1MPx
+- Eufy C120 (T8400X)
+- Eufy E220 (T8410C/X)
+- eLife ET-N3431H-DW
+- Galayou G2
+- Galayou G7 2K
+- GNCC GC2
+- GNCC P5
+- Hualai HL-JDPAN01
+- iFlytek XFP301-M
+- Imou Ranger 2
+- Jooan A6M
+- Jooan C9TS
+- Jooan Q3H
+- LongPlus X07
+- LSC 3215672
+- Mercusys MC200
+- Neos SmartCam 2
+- Xiaomi HL-CAM04
+- Xiaomi Xiaofang iSC5
+- Xiaomi SXJ02ZM
+- Xiaomi MJSXJ03HL
+- ZTE K540
+
+Bulb IP cameras:
+
+- AJCloud T-CP8040LF-W3M
+- Jooan T2R
+- LaView L2
+- Wansview G6
+
+Outdoor IP cameras:
+
+- Aoqee C1
+- AOSU C5L
+- Dekco DC5L
+- Overtech OV-59WB
+- Sonoff Outdoor B1P
+- TP-Link Tapo C500
+- Wansview W5
+- Wansview W6
+- Wansview W7
+- Wyze Cam Floodlight 1
+- Wyze Video Doorbell 1
+- Xiaomi MJSXJ05HL
+- XVIM IPCAM-100
+
+IPC modules:
+
+- Enzhi / Vanhua AK54
+- Enzhi / Vanhua H33
+- Enzhi / Vanhua L34
+- Enzhi / Vanhua S37i
+- Enzhi / Vanhua Z55
+- Enzhi / Vanhua Z55I
+
+Web cameras:
+
+- Hamedal C20
+- Wansview 106
+
+Development boards:
+
+- Teacup
+
+### Conditionally supported targets
+
+These are listed by Thingino as conditionally supported because secure boot may be present on tested units:
+
+- Roku Indoor Camera SE
+- Wyze Cam Pan 3
+- Wyze Video Doorbell 2
+
+For these, Prudynt-SE should be treated as conditional rather than guaranteed drop-in until the secure-boot state of the exact unit is confirmed.
+
+### Not included in the drop-in list
+
+- mystery-box models from the Thingino page are not treated here as reliable drop-in targets
+- unsupported hardware on the Thingino page is not a Prudynt-SE target list
 
 ## Building
 
