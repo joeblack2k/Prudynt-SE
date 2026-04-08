@@ -229,7 +229,7 @@ int main(int argc, const char *argv[])
         LOG_ERROR("Logger initialization failed.");
         return 1;
     }
-    LOG_INFO("Starting Prudynt Video Server.");
+    LOG_INFO("Starting Prudynt-SE Video Server.");
 
     if (!timesync_wait())
     {

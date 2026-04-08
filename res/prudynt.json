@@ -78,7 +78,7 @@
     "auth_required": true,
     "bandwidth_margin": 1.2,
     "est_bitrate": 5000,
-    "name": "thingino prudynt",
+    "name": "thingino prudynt-se",
     "out_buffer_size": 1000000,
     "packet_loss_threshold": 0.05,
     "password": "thingino",

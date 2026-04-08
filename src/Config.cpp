@@ -209,7 +209,7 @@ std::vector<ConfigItem<const char *>> CFG::getCharItems()
             return a.count(std::string(v)) == 1;
         }},
         {"motion.script_path", motion.script_path, "/usr/sbin/motion", validateCharNotEmpty},
-        {"rtsp.name", rtsp.name, "thingino prudynt", validateCharNotEmpty},
+        {"rtsp.name", rtsp.name, "thingino prudynt-se", validateCharNotEmpty},
         {"rtsp.password", rtsp.password, "thingino", validateCharNotEmpty},
         {"rtsp.username", rtsp.username, "thingino", validateCharNotEmpty},
         {"sensor.model", sensor.model, "unknown", validateCharNotEmpty, false, "/proc/jz/sensor/name"},
@@ -241,7 +241,7 @@ std::vector<ConfigItem<const char *>> CFG::getCharItems()
         {"stream1.rtsp_info", stream1.rtsp_info, "stream1", validateCharNotEmpty},
         {"stream2.jpeg_path", stream2.jpeg_path, "/tmp/snapshot.jpg", validateCharNotEmpty},
         {"stream3.jpeg_path", stream3.jpeg_path, "/tmp/snapshot_ch1.jpg", validateCharNotEmpty},
-        {"websocket.name", websocket.name, "wss prudynt", validateCharNotEmpty},
+        {"websocket.name", websocket.name, "wss prudynt-se", validateCharNotEmpty},
         {"websocket.token", websocket.token, "auto", [](const char *v) {
             std::string token(v);
             return token == "auto" || token.empty() || token.length() == WEBSOCKET_TOKEN_LENGTH;
