@@ -1,0 +1,53 @@
+#ifndef WS_hpp
+#define WS_hpp
+
+#include <atomic>
+#include <string>
+#include <vector>
+#include "Logger.hpp"
+#include "Config.hpp"
+#include <memory>
+#include <utility>
+#include "libwebsockets.h"
+#include <imp/imp_system.h>
+#include <imp/imp_common.h>
+
+#define WEBSOCKET_TOKEN_LENGTH 32
+#define SESSION_ID_LENGTH 16
+#define ROOT_MAX_LENGTH 16
+#define MAX_WS_MESSAGE_SIZE 4096
+#define MAX_WS_TX_QUEUE_SIZE 8192
+
+// WebSocket
+class WS
+{
+public:
+        void start();
+        static void *run(void* arg);
+        static bool process_json_message(const std::string &request, std::string &response);
+        static bool get_snapshot_bytes(std::vector<unsigned char> &image, int channel = 0);
+
+private:
+        lws_protocols protocols_[3]{}; // ws, http-only, terminator
+        struct lws_context_creation_info info{};
+        struct lws_context *context{};
+
+        static int ws_callback(struct lws *wsi, enum lws_callback_reasons reason, void *user, void *in, size_t len);
+
+        static signed char root_callback(struct lejp_ctx *ctx, char reason);
+        static signed char general_callback(struct lejp_ctx *ctx, char reason);
+        static signed char rtsp_callback(struct lejp_ctx *ctx, char reason);
+        static signed char sensor_callback(struct lejp_ctx *ctx, char reason);
+        static signed char image_callback(struct lejp_ctx *ctx, char reason);
+#if defined(AUDIO_SUPPORT)
+        static signed char audio_callback(struct lejp_ctx *ctx, char reason);
+#endif
+        static signed char stream_callback(struct lejp_ctx *ctx, char reason);
+        static signed char stream2_callback(struct lejp_ctx *ctx, char reason);
+        static signed char osd_callback(struct lejp_ctx *ctx, char reason);
+        static signed char motion_callback(struct lejp_ctx *ctx, char reason);
+        static signed char motion_roi_callback(struct lejp_ctx *ctx, char reason);
+        static signed char info_callback(struct lejp_ctx *ctx, char reason);
+        static signed char action_callback(struct lejp_ctx *ctx, char reason);
+};
+#endif

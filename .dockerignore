@@ -1,0 +1,8 @@
+.git
+bin
+obj
+3rdparty
+*.o
+*.a
+*.so
+*.so.*
