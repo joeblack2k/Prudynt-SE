@@ -1,0 +1,5 @@
+streams:
+  prudynt_se_main:
+    - rtsp://<user>:<password>@<camera-ip>:554/ch0#backchannel=0
+  prudynt_se_sub:
+    - rtsp://<user>:<password>@<camera-ip>:554/ch1#backchannel=0

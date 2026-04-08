@@ -1,0 +1,32 @@
+mqtt:
+  enabled: false
+
+go2rtc:
+  streams:
+    prudynt_se_main:
+      - rtsp://<user>:<password>@<camera-ip>:554/ch0#backchannel=0
+    prudynt_se_sub:
+      - rtsp://<user>:<password>@<camera-ip>:554/ch1#backchannel=0
+
+cameras:
+  prudynt_se:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/prudynt_se_main?video=copy&audio=copy
+          input_args: preset-rtsp-restream
+          roles:
+            - record
+            - audio
+        - path: rtsp://127.0.0.1:8554/prudynt_se_sub?video=copy&audio=copy
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
+    onvif:
+      host: <camera-ip>
+      port: 80
+      user: <user>
+      password: <password>
+    detect:
+      width: 1280
+      height: 720
+      fps: 10

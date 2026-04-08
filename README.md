@@ -171,6 +171,7 @@ Build output is written to `bin/`.
 - The shipped stream core is designed for true producer/fanout behavior rather than shared single-consumer queues.
 - The RTSP path includes live555 startup fixes for clean `RTP-Info`, AAC startup timestamps, and stable multi-client session startup.
 - Current runtime identifiers and file paths still use `prudynt` internally where needed for compatibility with deployed camera service layouts.
+- Minimal integration examples for `go2rtc`, Frigate, Scrypted, and camera-side ONVIF profile sync live under `deploy/integrations/` and `deploy/thingino/init.d/`.
 
 ## Contributing
 
