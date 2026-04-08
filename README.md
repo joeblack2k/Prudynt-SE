@@ -2,6 +2,27 @@
 
 **Prudynt-SE** is a native Thingino-oriented Ingenic camera streamer based on the original **[prudynt-v3](https://git.i386.io/wyze/prudynt-v3)** lineage and the `prudynt-t` codebase, with a rewritten stream core focused on stable dual-stream RTSP, clean timestamps, and multi-client fanout on real hardware.
 
+## Based On
+
+Prudynt-SE is directly based on:
+
+- `prudynt-v3` as the historical upstream lineage
+- `prudynt-t` as the immediate codebase foundation for this repo
+
+This repository is not a clean-room rewrite from scratch. It is a focused continuation of `prudynt-t`, with the stream distribution layer, RTSP startup behavior, and deployment baseline pushed forward into a new known-good branch of work.
+
+## What Changed From prudynt-t
+
+Compared with the `prudynt-t` baseline, Prudynt-SE currently includes:
+
+- a rewritten stream core built around producer/fanout semantics instead of fragile shared single-consumer queue behavior
+- stabilized native `ch0` and `ch1` handling for real dual-stream camera operation
+- RTSP startup fixes for clean `RTP-Info` and clean initial `ffprobe`/`ffmpeg` timestamps
+- AAC startup timestamp fixes so audio does not begin with negative DTS/PTS offsets
+- cleaner multi-client startup and connect/disconnect behavior under stress
+- a validated reboot-proof service path on the physical camera used for milestone testing
+- updated public branding, README, tag, and release baseline under the Prudynt-SE name
+
 ## What This Repo Is
 
 Prudynt-SE keeps the camera-first architecture:
